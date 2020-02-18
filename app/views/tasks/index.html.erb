@@ -1,0 +1,19 @@
+<h1>My Tasks</h1>
+<ul>
+<% @task.each do |task| %>
+<li>
+<%  if task.completed == true %>
+<input type="checkbox" checked>
+<% else %>
+<input type="checkbox">
+<% end %>
+<a href="/tasks/<%=task.id%>"><%= "#{task.title}" %></a>
+</li>
+<%= link_to "X", "tasks/#{task.id}",
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+</ul>
+<% end %>
+<br>
+
+<%= link_to "+ Add to list", '/tasks/new' %>

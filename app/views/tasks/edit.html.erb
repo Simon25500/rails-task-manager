@@ -1,0 +1,13 @@
+<h1>Edit task</h1>
+
+<form action="/tasks/<%=@task.id%>/update" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="title">title</label>
+  <input type="text" name="tasks[title]" value="<%= @task.title %>" id="title">
+  <label for="details">details</label>
+  <input type="text" value="<%= @task.details %>" id="details" name="tasks[details]">
+  <label for="check">Completed</label>
+  <input type="checkbox" name="tasks[check]" id="check">
+  <input type="submit">
+</form>
+
